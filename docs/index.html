@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="MM-Snowball is a multimodal dialogue dataset for studying hallucination accumulation and correction across multi-turn vision-language interactions."
+    >
+    <title>MM-Snowball</title>
+    <style>
+      :root {
+        --paper: #f7f3ea;
+        --ink: #1f2520;
+        --muted: #60675f;
+        --line: #ddd5c4;
+        --teal: #0f766e;
+        --brick: #b64b3f;
+        --amber: #d99b2b;
+        --green: #2d6a4f;
+        --white: #fffdf7;
+        --shadow: 0 18px 45px rgba(31, 37, 32, 0.13);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(31, 37, 32, 0.12);
+        background: rgba(247, 243, 234, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(1120px, calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--teal);
+        font-size: 17px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        min-height: calc(100vh - 64px);
+        display: grid;
+        align-items: center;
+        padding: 54px 0 36px;
+      }
+
+      .hero-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--brick);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 780px;
+        font-size: clamp(48px, 7vw, 104px);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        max-width: 720px;
+        margin: 24px 0 0;
+        color: #42483f;
+        font-size: clamp(18px, 2vw, 23px);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        padding: 11px 16px;
+        color: var(--white);
+        background: var(--ink);
+        font-size: 15px;
+        font-weight: 750;
+        line-height: 1.1;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: transparent;
+      }
+
+      .button.muted {
+        border-color: var(--line);
+        color: var(--muted);
+        background: rgba(255, 253, 247, 0.68);
+        cursor: not-allowed;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.muted:hover {
+        transform: none;
+      }
+
+      .hero-media {
+        position: relative;
+        min-height: 520px;
+      }
+
+      .image-stack {
+        position: absolute;
+        inset: 0;
+      }
+
+      .shot {
+        position: absolute;
+        overflow: hidden;
+        border: 8px solid var(--white);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .shot img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .shot.one {
+        left: 0;
+        top: 24px;
+        width: 58%;
+        aspect-ratio: 4 / 3;
+        transform: rotate(-3deg);
+      }
+
+      .shot.two {
+        right: 0;
+        top: 0;
+        width: 50%;
+        aspect-ratio: 1 / 1;
+        transform: rotate(4deg);
+      }
+
+      .shot.three {
+        left: 10%;
+        bottom: 16px;
+        width: 52%;
+        aspect-ratio: 4 / 3;
+        transform: rotate(3deg);
+      }
+
+      .shot.four {
+        right: 6%;
+        bottom: 56px;
+        width: 42%;
+        aspect-ratio: 3 / 4;
+        transform: rotate(-4deg);
+      }
+
+      .stats-strip {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat {
+        min-height: 118px;
+        padding: 24px 28px;
+        border-right: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: clamp(30px, 4vw, 48px);
+        line-height: 1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-weight: 650;
+      }
+
+      section {
+        padding: 76px 0;
+      }
+
+      .section-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.58fr);
+        gap: 36px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(30px, 4vw, 54px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .panel {
+        min-height: 250px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 24px;
+        background: rgba(255, 253, 247, 0.58);
+      }
+
+      .panel .index {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--green);
+        font-weight: 800;
+      }
+
+      .panel:nth-child(2) .index {
+        background: var(--brick);
+      }
+
+      .panel:nth-child(3) .index {
+        background: var(--amber);
+      }
+
+      .panel h3 {
+        margin: 18px 0 10px;
+        font-size: 22px;
+        line-height: 1.15;
+      }
+
+      .panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .example {
+        display: grid;
+        grid-template-columns: minmax(290px, 0.8fr) minmax(0, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .example-image {
+        overflow: hidden;
+        min-height: 420px;
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .example-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .dialogue {
+        display: grid;
+        gap: 12px;
+      }
+
+      .turn {
+        border-left: 4px solid var(--teal);
+        padding: 15px 17px;
+        background: rgba(255, 253, 247, 0.72);
+      }
+
+      .turn:nth-child(2) {
+        border-left-color: var(--brick);
+      }
+
+      .turn:nth-child(3) {
+        border-left-color: var(--amber);
+      }
+
+      .turn b {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .turn p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .citation {
+        background: #ece4d2;
+      }
+
+      .bibtex {
+        overflow-x: auto;
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 20px;
+        background: var(--ink);
+        color: #f7f3ea;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      footer {
+        padding: 28px 0 38px;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 38px;
+        }
+
+        .hero-inner,
+        .section-heading,
+        .example {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media {
+          min-height: 430px;
+        }
+
+        .stats-strip,
+        .workflow {
+          grid-template-columns: 1fr;
+        }
+
+        .stat {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .stat:last-child {
+          border-bottom: 0;
+        }
+
+        .example-image {
+          min-height: 320px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .actions {
+          display: grid;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .hero-media {
+          min-height: 360px;
+        }
+
+        .shot {
+          border-width: 5px;
+        }
+
+        .shot.one {
+          width: 67%;
+        }
+
+        .shot.two {
+          width: 56%;
+        }
+
+        .shot.three {
+          width: 62%;
+        }
+
+        .shot.four {
+          width: 48%;
+          bottom: 38px;
+        }
+
+        section {
+          padding: 56px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span>MM-Snowball</span>
+        </a>
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#examples">Examples</a>
+          <a href="#citation">Citation</a>
+          <a href="https://github.com/FRENKIE-CHIANG/MM-Snowball">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Multimodal dialogue benchmark</p>
+            <h1 id="title">MM-Snowball</h1>
+            <p class="subtitle">
+              A vision-language dataset for probing how hallucinated assumptions accumulate,
+              propagate, and can be corrected across multi-turn image-grounded dialogue.
+            </p>
+            <div class="actions" aria-label="Project links">
+              <a class="button" href="https://github.com/FRENKIE-CHIANG/MM-Snowball" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="button secondary" href="#" aria-disabled="true">Paper</a>
+              <a class="button secondary" href="#" aria-disabled="true">Hugging Face</a>
+              <a class="button muted" href="#citation">BibTeX</a>
+            </div>
+          </div>
+          <div class="hero-media" aria-label="Dataset image samples">
+            <div class="image-stack">
+              <figure class="shot one">
+                <img src="assets/gallery/sample-01.jpg" alt="A person riding a moped on a dirt road.">
+              </figure>
+              <figure class="shot two">
+                <img src="assets/gallery/sample-02.jpg" alt="A young girl near a birthday candle.">
+              </figure>
+              <figure class="shot three">
+                <img src="assets/gallery/sample-03.jpg" alt="A cyclist riding next to a train.">
+              </figure>
+              <figure class="shot four">
+                <img src="assets/gallery/sample-04.jpg" alt="A kitchen counter scene.">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-strip" aria-label="Dataset statistics">
+        <div class="stat">
+          <strong>4,992</strong>
+          <span>annotated image-dialogue samples</span>
+        </div>
+        <div class="stat">
+          <strong>6</strong>
+          <span>turns per dialogue in the current release</span>
+        </div>
+        <div class="stat">
+          <strong>5,000</strong>
+          <span>image files packaged with the dataset</span>
+        </div>
+      </div>
+
+      <section id="overview" aria-labelledby="overview-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="overview-title">From grounded perception to snowballing hallucination.</h2>
+            <p>
+              Each sample pairs an image with a caption and a structured multi-turn dialogue.
+              The dialogue contrasts grounded answers with hallucinated responses so models can
+              be evaluated beyond single-turn recognition.
+            </p>
+          </div>
+          <div class="workflow">
+            <article class="panel">
+              <span class="index">1</span>
+              <h3>Image-grounded question</h3>
+              <p>Start from an observable detail in the image, such as an object, attribute, count, scene, or action.</p>
+            </article>
+            <article class="panel">
+              <span class="index">2</span>
+              <h3>Contrasting answers</h3>
+              <p>Record a correct answer and a hallucinated answer to expose where visual grounding can fail.</p>
+            </article>
+            <article class="panel">
+              <span class="index">3</span>
+              <h3>Multi-turn propagation</h3>
+              <p>Continue the dialogue to test whether a model corrects false premises or compounds them over time.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="examples" aria-labelledby="examples-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="examples-title">Sample dialogue</h2>
+            <p>
+              A single false assumption can shift later questions away from the visual evidence.
+              MM-Snowball keeps both the grounded and hallucinated paths explicit.
+            </p>
+          </div>
+          <div class="example">
+            <div class="example-image">
+              <img src="assets/gallery/sample-01.jpg" alt="A person in a red helmet riding a moped on a dirt road.">
+            </div>
+            <div class="dialogue" aria-label="Dialogue example">
+              <div class="turn">
+                <b>Question</b>
+                <p>What is the person in the image riding?</p>
+              </div>
+              <div class="turn">
+                <b>Grounded answer</b>
+                <p>The person is riding a moped.</p>
+              </div>
+              <div class="turn">
+                <b>Hallucinated path</b>
+                <p>The person is riding a bicycle, which can then become a false premise in later turns.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="citation" class="citation" aria-labelledby="citation-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="citation-title">Citation</h2>
+            <p>Replace the placeholder metadata after the paper title, author list, and venue are finalized.</p>
+          </div>
+          <pre class="bibtex"><code>@misc{mmsnowball2026,
+  title        = {MM-Snowball},
+  author       = {Author List},
+  year         = {2026},
+  howpublished = {\url{https://github.com/FRENKIE-CHIANG/MM-Snowball}}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>MM-Snowball project page.</span>
+        <span><a href="https://github.com/FRENKIE-CHIANG/MM-Snowball">github.com/FRENKIE-CHIANG/MM-Snowball</a></span>
+      </div>
+    </footer>
+  </body>
+</html>
