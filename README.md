@@ -1,6 +1,8 @@
 # MM-Snowball
 
-MM-Snowball is a multimodal dialogue dataset for studying hallucination accumulation and correction across multi-turn vision-language interactions. [Coming Soon!!! Before August 2026!! Thanks!!]
+MM-Snowball is a multimodal dialogue dataset for studying hallucination accumulation and correction across multi-turn vision-language interactions. 
+
+**[Coming Soon!!! Before August 2026!! Thanks!!]**
 
 
 
