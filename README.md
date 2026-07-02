@@ -4,6 +4,8 @@ MM-Snowball is a multimodal dialogue dataset for studying hallucination accumula
 
 **[Coming Soon!!! Before August 2026!! Thanks!!]**
 
+**[E-mail:]**  jiangyue23@m.fudan.edu.cn
+
 
 
 ## Citation
