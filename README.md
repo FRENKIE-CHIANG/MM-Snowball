@@ -6,7 +6,7 @@
 <br>
 <h1>[ICML 2026] MM-Snowball: Evaluating and Mitigating Hallucination Snowballing in Multimodal Multi-Turn Dialogue</h1>
 
-_Conduct a fine-grained diagnosis and systematic exploration of hallucination snowballing in multimodal multi-turn dialogues_
+_Conduct a fine-grained diagnosis and exploration of hallucination snowballing in multimodal multi-turn dialogues_
 
 <font size=7><div align='center' > 
 [[🏠 Project Page](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball)] 
@@ -57,7 +57,7 @@ Dingkang Yang<sup>1,6†</sup>
 
 ##  🔥 News
 - **`To Do:`** We will continue updating the [Leaderboard]() with MM-Snowball evaluation results for the **latest MLLMs**. If you like our project, please give us a star ⭐ on GitHub for the latest update.
-- **`2026-11-01`** We release [***MM-Snowball***](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball), the first benchmark for real-world omnimodal understanding of MLLMs. 
+- **`2026-11-01`** We release [***MM-Snowball***](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball), the first work to conduct a fine-grained diagnosis and systematic exploration of hallucination snowballing in multimodal multi-turn dialogues. 
 - **`2026-05-01`** 🎉🎉🎉 ***MM-Snowball*** is accepted by [***ICML 2026***](https://icml.cc/virtual/2026/papers.html). 
 
 
