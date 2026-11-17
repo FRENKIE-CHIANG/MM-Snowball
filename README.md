@@ -4,7 +4,9 @@
 
 <div align="center">
 <br>
-<h1>[ICML 2026] MM-Snowball: Evaluating and Mitigating Hallucination Snowballing in Multimodal Multi-Turn Dialogue</h1>
+<h1> [ICML 2026] </h1>
+<h1> MM-Snowball: Evaluating and Mitigating Hallucination Snowballing in Multimodal Multi-Turn Dialogue</h1>
+
 
 _Conduct a fine-grained diagnosis and exploration of hallucination snowballing in multimodal multi-turn dialogues_
 
