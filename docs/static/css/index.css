@@ -95,6 +95,14 @@ body {
   font-weight: 700;
 }
 
+h1.section-banner.carter-one-regular {
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: 0.01em;
+}
+
 .hero .hero-body {
   padding-top: 2.5rem;
   padding-bottom: 2rem;
@@ -109,6 +117,38 @@ body {
 .figure-caption {
   color: #4a4a4a;
   margin-top: 0.6rem;
+}
+
+.stat-caption {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  color: #4a4a4a;
+  line-height: 1.55;
+}
+
+.bibtex-block {
+  position: relative;
+}
+
+.copy-bibtex {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 1;
+  border: 0;
+  border-radius: 999px;
+  background: #363636;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.copy-bibtex:hover {
+  background: #1f1f1f;
 }
 
 .figure-caption strong {
@@ -189,9 +229,12 @@ table.glance td {
   padding: 8px 12px;
 }
 
-table.glance th {
-  background: #363636;
-  color: #fff;
+table.glance th,
+.content table.glance th,
+.content table.glance thead th {
+  background: #e4ebe6 !important;
+  background-color: #e4ebe6 !important;
+  color: #243330 !important;
 }
 
 table.glance tr:nth-child(even) {

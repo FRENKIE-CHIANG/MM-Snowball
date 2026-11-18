@@ -75,7 +75,7 @@
               <span>📧 <a href="mailto:jiangxsnow@gmail.com">jiangxsnow@gmail.com</a></span>
               <span>📧 <a href="mailto:f.zheng@ieee.org">f.zheng@ieee.org</a></span>
             </div>
-            <div class="publication-venue carter-one-regular">ICML&nbsp;&nbsp;&nbsp;2026</div>
+            <div class="publication-venue carter-one-regular">🎉 ICML&nbsp;&nbsp;&nbsp;2026 🎉</div>
             <div class="publication-links">
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2606.00622" class="external-link button is-normal is-rounded is-dark">
@@ -118,7 +118,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Introduction</h2>
+          <h2 class="title is-3">👋 Introduction</h2>
 
           <div class="content has-text-justified">
             <p>
@@ -138,7 +138,7 @@
 
           <div class="content has-text-centered">
             <img src="static/images/data-showcase.png" alt="data showcase" style="max-width: 60%;">
-            <p class="figure-caption">❄️ MM-Snowball showcase: A six-turn image-grounded dialogue.</p>
+            <p class="figure-caption">❄️ <b>MM-Snowball</b> showcase: A six-turn image-grounded dialogue.</p>
           </div>
           
         </div>
@@ -150,10 +150,10 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3">Leaderboard</h2>
+          <h2 class="title is-3">🏆 Leaderboard</h2>
           <p>
             Accuracy across six turns (higher is better), Visual Fading Ratio (VFR, lower is better),
-            and Snowballing Resistance Score (SRS, higher is better).
+            and Snowballing Resistance Score (SRS, higher is better).<br>
             Within each group, models are ranked by Score = 0.5 × SRS + 0.5 × (100 − VFR).
           </p>
           <div class="table-scroll">
@@ -238,9 +238,7 @@
             </table>
           </div>
           <p class="note">
-            Red marks the best value in each column. VFR is best when it is lower.
-            To add a model, contact
-            <a href="mailto:jiangyue23@m.fudan.edu.cn">jiangyue23@m.fudan.edu.cn</a>.
+            If you want to add your model to our leaderboard, please contact 📧 <a href="mailto:jiangyue23@m.fudan.edu.cn">jiangyue23@m.fudan.edu.cn</a> and 📧 <a href="mailto:jiangxsnow@gmail.com">jiangxsnow@gmail.com</a>.
           </p>
         </div>
       </div>
@@ -249,7 +247,7 @@
 
   <section class="hero is-light is-small" id="overview">
     <div class="hero-body has-text-centered">
-      <h1 class="title is-1 section-banner">MM-Snowball</h1>
+      <h1 class="title is-1 section-banner carter-one-regular">❄️ MM-Snowball Dataset</h1>
     </div>
   </section>
 
@@ -257,7 +255,7 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Overview</h2>
+          <h2 class="title is-3">🔍 Benchmark Curation</h2>
           <div class="content has-text-justified">
             <p style="text-align: center;">The benchmark has three properties:</p>
             <p style="text-align: center; font-weight: bold;">
@@ -272,24 +270,29 @@
       </div>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" style="margin-top: 1.5rem;">Benchmark at a Glance</h2>
+          <h2 class="title is-3" style="margin-top: 1.5rem;">📊 Benchmark Statistic</h2>
           <div class="content has-text-centered">
             <table class="glance">
               <thead>
                 <tr>
                   <th>Split</th>
                   <th>Dialogues</th>
-                  <th>Samples per turn</th>
                   <th>Total samples</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Test</td><td>2,000</td><td>2,000</td><td>12,000</td></tr>
-                <tr><td>Train</td><td>2,992</td><td>2,992</td><td>17,952</td></tr>
-                <tr><td><b>Total</b></td><td><b>4,992</b></td><td><b>4,992</b></td><td><b>29,952</b></td></tr>
+                <tr><td>Test</td><td>2,000</td><td>12,000</td></tr>
+                <tr><td>Train</td><td>2,992</td><td>17,952</td></tr>
+                <tr><td><b>Total</b></td><td><b>4,992</b></td><td><b>29,952</b></td></tr>
               </tbody>
             </table>
-            <p class="figure-caption">Annotation JSON files are in the GitHub repository. Download images from <a href="https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball">Hugging Face</a>.</p>
+            <p>
+              You may also evaluate on all 4,992 complete dialogues in the full MM-Snowball dataset 
+              as the testset according to your needs.<br>
+              Please clearly state the evaluation scope and dialogue IDs used in your research to ensure reproducibility.
+            </p>
+            <img src="static/images/statistic.png" alt="MM-Snowball dataset statistics" style="width: 100%; margin-top: 1.75rem;">
+            <p class="stat-caption"><b>🆚 Comparison of hallucination benchmarks.</b> YN and OE denote yes-no and open-ended questions, respectively, and MCQ stands for multiple-choice questions. Hallu-relative Questions indicate whether the benchmark explicitly incorporates hallucination-inducing queries. Fake Image indicates whether edited or synthesized images are employed instead of native visual inputs from real world to provoke artificial hallucinations. Hallu-relative Metrics denote whether the benchmark defines dedicated evaluation metrics tailored to hallucination assessment. Enabled by our proposed AHTS method, the dialogue in MM-Snowball unfolds progressively and can be readily extended to additional dialogue turns (beyond 6 turns).</p>
           </div>
         </div>
       </div>
@@ -298,7 +301,7 @@
 
   <section class="hero is-light is-small" id="results">
     <div class="hero-body has-text-centered">
-      <h1 class="title is-1 section-banner">Experiment Results</h1>
+      <h1 class="title is-1 section-banner carter-one-regular">Experiment Results</h1>
     </div>
   </section>
 
@@ -307,6 +310,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Overall Performance</h2>
+          <img src="static/images/exp-result.png" alt="Overall performance on MM-Snowball" style="width: 100%; margin-top: 1rem;">
           <div class="box">
             <div class="content has-text-centered">
               <img src="static/images/V-shape-2_00.png" alt="Accuracy across six dialogue turns" style="width: 100%;">
@@ -315,41 +319,30 @@
           </div>
         </div>
       </div>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Run the Evaluation</h2>
-          <div class="content has-text-justified">
-            <p>
-              Inference uses an OpenAI-compatible vision endpoint. Scoring uses a separate yes/no judge.
-              Aggregation computes per-turn accuracy, VFR, and SRS from the saved judgments and does not call the API again.
-            </p>
-          </div>
-          <pre><code>export OPENAI_API_KEY="your-key"
-export OPENAI_BASE_URL="https://your-endpoint/v1"
-
-python eval/eval.py --turn 3 --model your-vision-model
-python eval/score.py --input eval_outputs/your-vision-model_Turn-3.json --model gpt-5
-python eval/aggregate.py --input eval_outputs/your-vision-model_Turn-{1,2,3,4,5,6}_scores.json</code></pre>
-        </div>
-      </div>
     </div>
   </section>
 
   <section class="hero is-light is-small" id="citation">
     <div class="hero-body has-text-centered">
-      <h1 class="title is-1 section-banner">Citation</h1>
+      <h1 class="title is-1 section-banner carter-one-regular">Citation</h1>
     </div>
   </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <p class="has-text-centered">If you find MM-Snowball helpful, please cite our work.</p>
-      <pre><code>@inproceedings{jiang2026mmsnowball,
+      <p class="has-text-centered">
+        If you find <b>❄️ MM-Snowball</b> helpful for your research, 
+        please consider citing our work. 🙏 Thanks!
+      </p>
+      <div class="bibtex-block">
+        <button type="button" class="copy-bibtex" data-copy="bibtex">Copy</button>
+        <pre><code id="bibtex">@inproceedings{jiang2026mmsnowball,
   title     = {MM-Snowball: Evaluating and Mitigating Hallucination Snowballing in Multimodal Multi-Turn Dialogue},
   author    = {Jiang, Yue and Jiang, Xue and Zhang, Lihua and Wang, Zhiqiang and Lu, Yuhang and Wang, Peng and Han, Bo and Zheng, Feng and Yang, Dingkang},
   booktitle = {Proceedings of the International Conference on Machine Learning},
   year      = {2026}
 }</code></pre>
+      </div>
     </div>
   </section>
 
@@ -372,6 +365,31 @@ python eval/aggregate.py --input eval_outputs/your-vision-model_Turn-{1,2,3,4,5,
           var target = document.getElementById(burger.dataset.target);
           burger.classList.toggle("is-active");
           target.classList.toggle("is-active");
+        });
+      });
+
+      document.querySelectorAll(".copy-bibtex").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var source = document.getElementById(button.dataset.copy);
+          var text = source.innerText.replace(/\n$/, "");
+          var done = function () {
+            var original = button.textContent;
+            button.textContent = "Copied";
+            window.setTimeout(function () {
+              button.textContent = original;
+            }, 1500);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done);
+          } else {
+            var area = document.createElement("textarea");
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand("copy");
+            area.remove();
+            done();
+          }
         });
       });
     });
