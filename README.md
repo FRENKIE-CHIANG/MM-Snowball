@@ -336,7 +336,7 @@ $$
 
 All inputs to these formulas use percentage values (e.g., 60 for 60%). A one-point increase in SRS and a one-point decrease in VFR contribute equally to Score. Score is a leaderboard sorting score introduced for this release; the paper's original VFR and SRS are also reported separately. VFR is not clipped: visual retention may exceed 100 when VFR is negative, so Score is not restricted to the range 0–100. Scores below are calculated from the displayed metric values, and sorting uses values before rounding to two decimal places.
 
-| Model | $\text{Turn-1}_{acc}$ | $\text{Turn-2}_{acc}$ | $\text{Turn-3}_{acc}$ | $\text{Turn-4}_{acc}$ | $\text{Turn-5}_{acc}$ | $\text{Turn-6}_{acc}$ | VFR $\downarrow$ | SRS $\uparrow$ | Avg. Acc. $\uparrow$ | Score $\uparrow$ |
+| Model | $\text{T-1}_{acc}$ | $\text{T-2}_{acc}$ | $\text{T-3}_{acc}$ | $\text{T-4}_{acc}$ | $\text{T-5}_{acc}$ | $\text{T-6}_{acc}$ | VFR $\downarrow$ | SRS $\uparrow$ | Avg. Acc. $\uparrow$ | Score $\uparrow$ |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 🟢***Open-source*** |  |  |  |  |  |  |  |  |  |  |
 | 🥇 Kimi K2.5 | 65.05 | 37.45 | 61.25 | 59.45 | 65.15 | 76.35 | -0.15 | 36.95 | 60.78 | 68.55 |
