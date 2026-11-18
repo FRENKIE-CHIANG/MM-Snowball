@@ -57,7 +57,7 @@ Dingkang Yang<sup>1,6†</sup>
 
 
 ##  🔥 News
-- **`To Do:`** We will continue updating the [Leaderboard]() with MM-Snowball evaluation results for the **latest MLLMs**. If you like our project, please give us a star ⭐ on GitHub for the latest update.
+- **`To Do:`** We will continue updating the [Leaderboard](#leaderboard) with MM-Snowball evaluation results for the **latest MLLMs**. If you like our project, please give us a star ⭐ on GitHub for the latest update.
 - **`2026-11-01`** We release [***MM-Snowball***](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball), the first work to conduct a fine-grained diagnosis and systematic exploration of hallucination snowballing in multimodal multi-turn dialogues. 
 - **`2026-05-01`** 🎉🎉🎉 ***MM-Snowball*** is accepted by [***ICML 2026***](https://icml.cc/virtual/2026/papers.html). 
 
