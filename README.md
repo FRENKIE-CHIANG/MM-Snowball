@@ -10,7 +10,7 @@
 _Conduct a fine-grained diagnosis and exploration of hallucination snowballing in multimodal multi-turn dialogues_
 
 <font size=7><div align='center' > 
-[[🏠 Project Page](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball)] 
+[[🏠 Project Page](https://frenkie-chiang.github.io/MM-Snowball)] 
 [[📖 Paper](https://arxiv.org/pdf/2606.00622)] 
 [[🤗 Dataset](https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball)] 
 [[🏆 Leaderboard](#leaderboard)] 
@@ -64,7 +64,7 @@ Dingkang Yang<sup>1,6†</sup>
 
 ## 🎯 ***MM-Snowball*** Overview
 
-We introduce ***MM-Snowball***, which represents the **first** effort to systematically investigate hallucination snowballing in multimodal multi-turn conversations, offering a fine-grained diagnostic analysis of this phenomenon. Our benchmark evaluate hallucination snowballing in six-turn image-grounded dialogue. It tests whether a model continues to trust visual evidence when earlier conversation turns contain misleading answers and premises.
+We introduce [***MM-Snowball***](https://frenkie-chiang.github.io/MM-Snowball), which represents the **first** effort to systematically investigate hallucination snowballing in multimodal multi-turn conversations, offering a fine-grained diagnostic analysis of this phenomenon. Our benchmark evaluate hallucination snowballing in six-turn image-grounded dialogue. It tests whether a model continues to trust visual evidence when earlier conversation turns contain misleading answers and premises.
 
 <img src="assets/data-construct.png" width="100%" height="100%">
 
