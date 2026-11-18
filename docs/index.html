@@ -42,33 +42,38 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <img class="teaser-logo" src="static/images/mmsnowball-logo.jpeg" alt="MM-Snowball">
-            <h1 class="title is-1 publication-title carter-one-regular">MM-Snowball</h1>
+            <h1 class="title is-1 publication-title carter-one-regular">❄️ MM-Snowball</h1>
             <h2 class="subtitle is-3 publication-subtitle carter-one-regular">
               Evaluating and Mitigating Hallucination Snowballing<br>
               in Multimodal Multi-Turn Dialogue
             </h2>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Yue Jiang<sup>1*</sup>,</span>
-              <span class="author-block">Xue Jiang<sup>2,3*</sup>,</span>
-              <span class="author-block">Lihua Zhang<sup>1</sup>,</span>
-              <span class="author-block">Zhiqiang Wang<sup>4</sup>,</span>
-              <span class="author-block">Yuhang Lu<sup>5</sup>,</span>
+            <div class="is-size-5 publication-authors author-names">
+              <span class="author-block">Yue Jiang<sup>1*</sup>,</span>&nbsp;
+              <span class="author-block">Xue Jiang<sup>2,3*</sup>,</span>&nbsp;
+              <span class="author-block">Lihua Zhang<sup>1</sup>,</span>&nbsp;
+              <span class="author-block">Zhiqiang Wang<sup>4</sup>,</span>&nbsp;
+              <span class="author-block">Yuhang Lu<sup>5</sup>,</span>&nbsp;
               <span class="author-block">Peng Wang<sup>5</sup>,</span><br>
-              <span class="author-block">Bo Han<sup>3</sup>,</span>
-              <span class="author-block">Feng Zheng<sup>2†</sup>,</span>
+              <span class="author-block">Bo Han<sup>3</sup>,</span>&nbsp;
+              <span class="author-block">Feng Zheng<sup>2†</sup>,</span>&nbsp;
               <span class="author-block">Dingkang Yang<sup>1,6†</sup></span>
             </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>*</sup>Equal contribution.</span>
+            <div class="is-size-5 publication-authors author-note">
+              <span class="author-block"><sup>*</sup>Equal contribution.</span>&nbsp;&nbsp;
               <span class="author-block"><sup>†</sup>Corresponding author.</span>
             </div>
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Fudan University</span>
+              <span class="author-block"><sup>1</sup>Fudan University</span>&nbsp;&nbsp;
               <span class="author-block"><sup>2</sup>Southern University of Science and Technology</span>
               <span class="author-block"><sup>3</sup>TMLR Group, Hong Kong Baptist University</span><br>
-              <span class="author-block"><sup>4</sup>HKUST</span>
-              <span class="author-block"><sup>5</sup>RAMS Lab</span>
+              <span class="author-block"><sup>4</sup>HKUST</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>5</sup>RAMS Lab</span>&nbsp;&nbsp;
               <span class="author-block"><sup>6</sup>MM Lab, CUHK</span>
+            </div>
+            <div class="author-emails">
+              <span>📧 <a href="mailto:jiangyue23@m.fudan.edu.cn">jiangyue23@m.fudan.edu.cn</a></span>
+              <span>📧 <a href="mailto:jiangxsnow@gmail.com">jiangxsnow@gmail.com</a></span>
+              <span>📧 <a href="mailto:f.zheng@ieee.org">f.zheng@ieee.org</a></span>
             </div>
             <div class="publication-venue carter-one-regular">ICML&nbsp;&nbsp;&nbsp;2026</div>
             <div class="publication-links">
@@ -114,32 +119,28 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Introduction</h2>
-          <div class="content has-text-centered">
-            <img src="static/images/data-showcase.png" alt="A six-turn MM-Snowball dialogue" style="max-width: 78%;">
-            <p class="figure-caption">A six-turn image-grounded dialogue. An early visual mistake is carried forward until the model is asked to look again.</p>
-          </div>
+
           <div class="content has-text-justified">
             <p>
-              We introduce <b>MM-Snowball</b>, the <i>first</i> benchmark to conduct a fine-grained diagnosis of
-              <b>hallucination snowballing</b> in multimodal multi-turn dialogue. Each example is a six-turn conversation
-              grounded in one image. The test asks whether a model keeps trusting the visual evidence after earlier turns
-              have introduced misleading answers and premises.
+              Multimodal large language models (MLLMs) demonstrate remarkable visual understanding, 
+              yet their reliability in interactive settings is severely undermined by <b>hallucination snowballing</b>: 
+              a phenomenon where initial errors amplify across conversational turns, leading to a collapse in coherence. 
+              This failure reveals a fundamental vulnerability where models progressively neglect visual grounding 
+              in favor of over-relying on polluted textual history. Existing benchmarks are predominantly confined to 
+              single-turn or two-trun VQA, which fail to capture the complex dynamics of error propagation in long-horizon interactions. 
             </p>
+            
             <p>
-              MM-Snowball contains <b>4,992</b> image-grounded dialogues and <b>29,952</b> turn-level samples.
-              The release has 2,000 test dialogues and 2,992 training dialogues. History given to the model contains the
-              question and the hallucinated answer from earlier turns, not the reference answer.
-              Images and annotations are available on
-              <a href="https://huggingface.co/datasets/FRENKIE-CHIANG/MM-Snowball">Hugging Face</a>.
+              To address this, we introduce <b>❄️ MM-Snowball</b>, the <b>first</b> work to conduct a fine-grained diagnosis and systematic 
+              exploration of hallucination snowballing in multimodal multi-turn dialogues.
             </p>
           </div>
-          <div class="content news-list">
-            <p><b>News</b></p>
-            <ul>
-              <li><b>2026-11-01</b> — We release MM-Snowball, including the dataset, evaluation code, and leaderboard.</li>
-              <li><b>2026-05-01</b> — MM-Snowball is accepted by <a href="https://icml.cc/virtual/2026/papers.html">ICML 2026</a>.</li>
-            </ul>
+
+          <div class="content has-text-centered">
+            <img src="static/images/data-showcase.png" alt="data showcase" style="max-width: 60%;">
+            <p class="figure-caption">❄️ MM-Snowball showcase: A six-turn image-grounded dialogue.</p>
           </div>
+          
         </div>
       </div>
     </div>

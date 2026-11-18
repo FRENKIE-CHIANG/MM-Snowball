@@ -38,6 +38,34 @@ body {
   display: inline-block;
 }
 
+.author-names {
+  font-weight: 700;
+}
+
+.author-note {
+  margin-top: 0.65rem;
+}
+
+.author-emails {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+  color: #4a4a4a;
+}
+
+.author-emails span {
+  display: inline-block;
+  margin: 0.15rem 0.7rem;
+}
+
+.author-emails a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.author-emails a:hover {
+  text-decoration: underline;
+}
+
 .publication-venue {
   font-family: "Carter One", system-ui;
   font-size: 1.5rem;
