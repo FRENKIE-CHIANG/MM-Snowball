@@ -26,12 +26,20 @@
       </a>
     </div>
     <div id="navMenu" class="navbar-menu">
-      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <a class="navbar-item" href="#introduction">Introduction</a>
-        <a class="navbar-item" href="#leaderboard">Leaderboard</a>
-        <a class="navbar-item" href="#overview">Overview</a>
-        <a class="navbar-item" href="#results">Results</a>
-        <a class="navbar-item" href="#citation">Citation</a>
+      <div class="navbar-start">
+        <a class="navbar-item" href="#introduction">👋 Introduction</a>
+        <a class="navbar-item" href="#leaderboard">🏆 Leaderboard</a>
+        <a class="navbar-item" href="#overview">🔍 Dataset Overview</a>
+        <a class="navbar-item" href="#experiment-results">🔮 Analysis</a>
+        <a class="navbar-item" href="#citation">🏷️ Citation</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">🔥 More Research</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://frenkie-chiang.github.io/MM-Snowball/"><b>❄️ MM-Snowball</b></a>
+            <a class="navbar-item" href="https://github.com/FRENKIE-CHIANG/DanmakuTPPBench"><b>🎬 DanmakuTPPBench</b></a>
+            <!-- Add another page: <a class="navbar-item" href="https://example.com"><b>Project name</b></a> -->
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -42,11 +50,13 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <img class="teaser-logo" src="static/images/mmsnowball-logo.jpeg" alt="MM-Snowball">
-            <h1 class="title is-1 publication-title carter-one-regular">❄️ MM-Snowball</h1>
-            <h2 class="subtitle is-3 publication-subtitle carter-one-regular">
-              Evaluating and Mitigating Hallucination Snowballing<br>
-              in Multimodal Multi-Turn Dialogue
-            </h2>
+            <div class="title-plaque">
+              <h1 class="title is-1 publication-title carter-one-regular">❄️ MM-Snowball</h1>
+              <h2 class="subtitle is-3 publication-subtitle carter-one-regular">
+                Evaluating and Mitigating Hallucination Snowballing<br>
+                in Multimodal Multi-Turn Dialogue
+              </h2>
+            </div>
             <div class="is-size-5 publication-authors author-names">
               <span class="author-block">Yue Jiang<sup>1*</sup>,</span>&nbsp;
               <span class="author-block">Xue Jiang<sup>2,3*</sup>,</span>&nbsp;
@@ -117,28 +127,30 @@
   <section class="section" id="introduction">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">👋 Introduction</h2>
+        <div class="column intro-wide">
+          <div class="comic-panel">
+            <h2 class="title is-3">👋 Introduction</h2>
 
-          <div class="content has-text-justified">
-            <p>
-              Multimodal large language models (MLLMs) demonstrate remarkable visual understanding, 
-              yet their reliability in interactive settings is severely undermined by <b>hallucination snowballing</b>: 
-              a phenomenon where initial errors amplify across conversational turns, leading to a collapse in coherence. 
-              This failure reveals a fundamental vulnerability where models progressively neglect visual grounding 
-              in favor of over-relying on polluted textual history. Existing benchmarks are predominantly confined to 
-              single-turn or two-trun VQA, which fail to capture the complex dynamics of error propagation in long-horizon interactions. 
-            </p>
-            
-            <p>
-              To address this, we introduce <b>❄️ MM-Snowball</b>, the <b>first</b> work to conduct a fine-grained diagnosis and systematic 
-              exploration of hallucination snowballing in multimodal multi-turn dialogues.
-            </p>
-          </div>
+            <div class="content has-text-justified">
+              <p>
+                Multimodal large language models (MLLMs) demonstrate remarkable visual understanding, 
+                yet their reliability in interactive settings is severely undermined by <b style="color: #c62828;">hallucination snowballing</b>: 
+                a phenomenon where initial errors amplify across conversational turns, leading to a collapse in coherence. 
+                This failure reveals a fundamental vulnerability where models progressively neglect visual grounding 
+                in favor of over-relying on polluted textual history. Existing benchmarks are predominantly confined to 
+                single-turn or two-trun VQA, which fail to capture the complex dynamics of error propagation in long-horizon interactions. 
+              </p>
+              
+              <p>
+                To address this, we introduce <b>❄️ MM-Snowball</b>, the <b style="color: #1b7a3a;">first</b> work to conduct a fine-grained diagnosis and systematic 
+                exploration of hallucination snowballing in multimodal multi-turn dialogues.
+              </p>
+            </div>
 
-          <div class="content has-text-centered">
-            <img src="static/images/data-showcase.png" alt="data showcase" style="max-width: 60%;">
-            <p class="figure-caption">❄️ <b>MM-Snowball</b> showcase: A six-turn image-grounded dialogue.</p>
+            <div class="content has-text-centered">
+              <img src="static/images/data-showcase.png" alt="data showcase" style="max-width: 60%;">
+              <p class="figure-caption">❄️ <b>MM-Snowball</b> showcase: A six-turn image-grounded dialogue</p>
+            </div>
           </div>
           
         </div>
@@ -146,11 +158,16 @@
     </div>
   </section>
 
-  <section class="section" id="leaderboard">
+  <section class="hero is-light is-small" id="leaderboard">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 section-banner carter-one-regular">🏆 Leaderboard</h1>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3">🏆 Leaderboard</h2>
           <p>
             Accuracy across six turns (higher is better), Visual Fading Ratio (VFR, lower is better),
             and Snowballing Resistance Score (SRS, higher is better).<br>
@@ -255,16 +272,16 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">🔍 Benchmark Curation</h2>
+          <h2 class="title is-3">🔍 Benchmark Construction</h2>
           <div class="content has-text-justified">
-            <p style="text-align: center;">The benchmark has three properties:</p>
-            <p style="text-align: center; font-weight: bold;">
-              (1) One shared visual anchor, (2) Six progressive turns, (3) A fixed hallucinated history.
-            </p>
+              <b class="stage-name">1️⃣ Stage 1: Visual Atomic Proposition Construction:</b> parsing images into structured semantic units to establish the Ground Truth State (<em>S</em><sub>GT</sub>); <br>
+              <b class="stage-name stage-purple">2️⃣ Stage 2: Causal Intervention &amp; State Perturbation:</b> applying semantic operators to create a counterfactual Hallucinated State (<em>S</em><sub>Hall</sub>); <br>
+              <b class="stage-name stage-blue">3️⃣ Stage 3: Adversarial Dialogue Trajectory Simulation,</b> a six-turn interaction between a Deceptive Attacker and a Bifurcated Responder. This simulation models the dynamic evolution of hallucinations across four phases: perceptual anchoring, adversarial bifurcation, hallucination snowballing, and visual rectification.</p>
           </div>
-          <div class="content has-text-centered">
-            <img src="static/images/data-construct.png" alt="MM-Snowball data construction" style="width: 100%;">
-            <p class="figure-caption">Data construction. Each dialogue stays attached to one image while the questions move from direct perception to misleading premises and a final visual check.</p>
+          <div class="box">
+            <div class="content has-text-centered">
+              <img src="static/images/data-construct.png" alt="MM-Snowball data construction" style="width: 100%;">
+            </div>
           </div>
         </div>
       </div>
@@ -291,7 +308,11 @@
               as the testset according to your needs.<br>
               Please clearly state the evaluation scope and dialogue IDs used in your research to ensure reproducibility.
             </p>
-            <img src="static/images/statistic.png" alt="MM-Snowball dataset statistics" style="width: 100%; margin-top: 1.75rem;">
+            <div class="box" style="margin-top: 1.75rem;">
+              <div class="content has-text-centered">
+                <img src="static/images/statistic.png" alt="MM-Snowball dataset statistics" style="width: 100%;">
+              </div>
+            </div>
             <p class="stat-caption"><b>🆚 Comparison of hallucination benchmarks.</b> YN and OE denote yes-no and open-ended questions, respectively, and MCQ stands for multiple-choice questions. Hallu-relative Questions indicate whether the benchmark explicitly incorporates hallucination-inducing queries. Fake Image indicates whether edited or synthesized images are employed instead of native visual inputs from real world to provoke artificial hallucinations. Hallu-relative Metrics denote whether the benchmark defines dedicated evaluation metrics tailored to hallucination assessment. Enabled by our proposed AHTS method, the dialogue in MM-Snowball unfolds progressively and can be readily extended to additional dialogue turns (beyond 6 turns).</p>
           </div>
         </div>
@@ -299,9 +320,9 @@
     </div>
   </section>
 
-  <section class="hero is-light is-small" id="results">
+  <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
-      <h1 class="title is-1 section-banner carter-one-regular">Experiment Results</h1>
+      <h1 id="experiment-results" class="title is-1 section-banner carter-one-regular">🔮 Experiment Results</h1>
     </div>
   </section>
 
@@ -309,14 +330,25 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Overall Performance</h2>
-          <img src="static/images/exp-result.png" alt="Overall performance on MM-Snowball" style="width: 100%; margin-top: 1rem;">
-          <div class="box">
+          <h2 class="title is-3">📈 Overall Performance</h2>
+          <div class="box" style="margin-top: 1rem;">
             <div class="content has-text-centered">
-              <img src="static/images/V-shape-2_00.png" alt="Accuracy across six dialogue turns" style="width: 100%;">
-              <p class="figure-caption">Accuracy across six turns. Many models fall through the middle of the dialogue and only partly recover when asked to look at the image again.</p>
+              <img src="static/images/exp-result.png" alt="Overall performance on MM-Snowball" style="width: 100%;">
+              <p class="figure-caption"><b>Overall performance on ❄️ MM-Snowball</b></p>
             </div>
           </div>
+          <!-- <div class="box"> -->
+          <h2 class="title is-3">💬 Visualization & Analysis</h2>
+            <div class="box" style="margin-top: 1rem;">
+            <div class="content has-text-centered">
+              <img src="static/images/V-shape.png" alt="Accuracy across six dialogue turns" style="width: 100%;">
+              <p class="figure-caption"><b>V-shaped accuracy trajectories across six-turn dialogues</b></p>
+            </div>
+          </div>
+          <p class="stat-caption" style="text-align: left;">
+            <b class="stage-name">(a) Overall performance</b> of all evaluated models, where two characteristic V-shaped patterns emerge during the dialogue process.<br>
+            <b class="stage-name stage-purple">(b) Weaker models</b> are more vulnerable to the Turn-3 hallucination trigger and continue to degrade as polluted textual history accumulates.<br>
+            <b class="stage-name stage-blue">(c) Stronger models</b> recover at Turn-3 by resisting the explicit visual-textual conflict, followed by another degradation-recovery pattern from Turn-5 to Turn-6. The first V-shape reflects the model's ability to detect and resist an adversarial hallucination factor, while the second V-shape indicates that visual evidence is not irreversibly forgotten but can be reactivated when the model is guided to refocus on the image.</p>
         </div>
       </div>
     </div>
@@ -324,7 +356,7 @@
 
   <section class="hero is-light is-small" id="citation">
     <div class="hero-body has-text-centered">
-      <h1 class="title is-1 section-banner carter-one-regular">Citation</h1>
+      <h1 class="title is-1 section-banner carter-one-regular">🏷️ Citation</h1>
     </div>
   </section>
 
@@ -349,10 +381,7 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        This page follows the academic project-page layout used by
-        <a href="https://jaaackhongggg.github.io/WorldSense/">WorldSense</a>,
-        which is adapted from <a href="https://mathvista.github.io/">MathVista</a>
-        and licensed under a
+        This page is licensed under a
         <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
       </p>
     </div>
